@@ -38,6 +38,9 @@ with sync_playwright() as playwright:
     courses_list_toolbar_title_text = page.get_by_test_id('courses-list-toolbar-title-text')
     expect(courses_list_toolbar_title_text).to_have_text('Courses')
 
+    courses_list_empty_view_icon = page.get_by_test_id('courses-list-empty-view-icon')
+    expect(courses_list_empty_view_icon).to_be_visible()
+
     courses_list_empty_view_title_text = page.get_by_test_id('courses-list-empty-view-title-text')
     expect(courses_list_empty_view_title_text).to_have_text('There is no results')
 
