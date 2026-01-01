@@ -1,5 +1,6 @@
 import pytest
 from playwright.sync_api import Page, expect
+from fixtures.browsers import chromium_page_with_state  # явный импорт
 
 
 @pytest.mark.courses

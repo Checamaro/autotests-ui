@@ -27,5 +27,5 @@ def test_successful_registration(chromium_page: Page):
         registration_button.click()
 
         dashboard_title = chromium_page.get_by_test_id(
-            'registration-page-dashboard-title')
+            'dashboard-toolbar-title-text')
         expect(dashboard_title).to_be_visible()
