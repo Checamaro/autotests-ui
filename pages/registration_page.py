@@ -28,6 +28,3 @@ class RegistrationPage(BasePage):
 
     def click_login_link(self):
         self.login_link.click()
-
-    def check_registration_button_to_be_enabled(self):
-        expect(self.registration_button).to_be_enabled()
