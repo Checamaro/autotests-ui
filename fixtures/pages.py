@@ -1,5 +1,3 @@
-from webbrowser import Chrome
-
 import pytest
 from playwright.sync_api import Page
 
@@ -27,5 +25,5 @@ def create_course_page(chromium_page_with_state: Page) -> CreateCoursePage:
     return CreateCoursePage(page=chromium_page_with_state)
 
 @pytest.fixture
-def course_list_page(chromium_page_with_state: Page) -> CoursesListPage:
+def courses_list_page(chromium_page_with_state: Page) -> CoursesListPage:
     return CoursesListPage(page=chromium_page_with_state)
