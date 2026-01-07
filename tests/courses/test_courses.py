@@ -41,3 +41,48 @@ class TestCourses:
         courses_list_page.check_visible_course_card(
             index=0, title="Playwright", max_score="100", min_score="10", estimated_time="2 weeks"
         )
+
+    def test_edit_course(self, courses_list_page: CoursesListPage, create_course_page: CreateCoursePage):
+        create_course_page.visit("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create")
+
+        create_course_page.create_course_toolbar_view.check_visible(is_create_course_disabled=True)
+        create_course_page.image_upload_widget.check_visible(is_image_uploaded=False)
+        create_course_page.create_course_form.check_visible(
+            title="", max_score="0", min_score="0", description="", estimated_time=""
+        )
+
+        create_course_page.image_upload_widget.upload_preview_image("./testdata/files/image.png")
+        create_course_page.image_upload_widget.check_visible(is_image_uploaded=True)
+
+        create_course_page.create_course_form.fill(
+            title="Initial Course",
+            max_score="90",
+            min_score="5",
+            description="Initial description",
+            estimated_time="1 week"
+        )
+
+        create_course_page.create_course_toolbar_view.check_visible(is_create_course_disabled=False)
+        create_course_page.create_course_toolbar_view.click_create_course_button()
+
+        courses_list_page.toolbar_view.check_visible()
+        courses_list_page.check_visible_course_card(
+            index=0, title="Initial Course", max_score="90", min_score="5", estimated_time="1 week"
+        )
+
+        courses_list_page.click_edit_course(index=0)
+
+        create_course_page.create_course_form.fill(
+            title="Updated Course",
+            max_score="95",
+            min_score="8",
+            description="Updated description",
+            estimated_time="3 weeks"
+        )
+
+        create_course_page.create_course_toolbar_view.click_create_course_button()
+
+        courses_list_page.toolbar_view.check_visible()
+        courses_list_page.check_visible_course_card(
+            index=0, title="Updated Course", max_score="95", min_score="8", estimated_time="3 weeks"
+        )
