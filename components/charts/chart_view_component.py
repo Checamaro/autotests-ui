@@ -1,5 +1,4 @@
 from playwright.sync_api import Page
-
 from components.base_component import BaseComponent
 from elements.image import Image
 from elements.text import Text
