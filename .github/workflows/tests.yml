@@ -18,13 +18,13 @@ jobs:
     steps:
       # 1. Шаг, который будет клонировать ваш репозиторий на машину GitHub Actions
       - name: Check out repository
-        uses: actions/checkout@v4  # Используем GitHub Action для клонирования репозитория
+        uses: actions/checkout@v5  # Используем GitHub Action для клонирования репозитория
 
       # 2. Шаг для установки Python на виртуальной машине
       - name: Set up Python
         uses: actions/setup-python@v6 # Используем GitHub Action для установки Python
         with:
-          python-version: '3.13'  # Устанавливаем версию Python 3.11 (можно заменить на другую версию)
+          python-version: '3.13'  # Устанавливаем версию Python
 
       # 3. Шаг для установки всех зависимостей проекта
       - name: Install dependencies
