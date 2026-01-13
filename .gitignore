@@ -1,0 +1,17 @@
+# pycharm
+.idea
+
+# python
+venv
+.venv
+__pycache__
+
+# allure
+allure-results
+allure-report
+
+# testing artifacts
+*.html
+*.json
+videos
+tracing
