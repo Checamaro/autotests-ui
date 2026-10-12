@@ -1,0 +1,37 @@
+INFO     BASE_PAGE:base_page.py:17 Opening the url "AppRoute.CREATE_COURSES"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-title-input" at index "0"
+INFO     INPUT:input.py:31 Fill input "Title" to value "Playwright draft"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-title-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Title" has a value "Playwright draft"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-description-input" at index "0"
+INFO     TEXTAREA:textarea.py:29 Fill textarea "Description" to value "Draft"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-description-input" at index "0"
+INFO     TEXTAREA:textarea.py:40 Checking that textarea "Description" has a value "Draft"
+INFO     BASE_PAGE:base_page.py:24 Reloading page with url "https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create"
+INFO     BASE_PAGE:base_page.py:38 Checking that current url matches pattern ".*/#/courses/create$"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-toolbar-title-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "text" "Title" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-toolbar-title-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:76 Checking that "text" "Title" has text "Create course"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-toolbar-create-course-button" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "button" "Create course" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-title-input" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "input" "Title" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-title-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Title" has a value "Playwright draft"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-estimated-time-input" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "input" "Estimated time" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-estimated-time-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Estimated time" has a value ""
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-description-input" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "textarea" "Description" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-description-input" at index "0"
+INFO     TEXTAREA:textarea.py:40 Checking that textarea "Description" has a value "Draft"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-max-score-input" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "input" "Max score" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-max-score-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Max score" has a value "0"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-min-score-input" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "input" "Min score" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-min-score-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Min score" has a value "0"
