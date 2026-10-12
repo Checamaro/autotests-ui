@@ -3,7 +3,9 @@ import pytest
 from _pytest.fixtures import SubRequest
 from playwright.sync_api import Playwright, Page
 from pages.authentication.registration_page import RegistrationPage
+from pages.courses.create_course_page import CreateCoursePage
 from pages.dashboard.dashboard_page import DashboardPage
+from tools.courses import BASE_COURSE
 from tools.routes import AppRoute
 from tools.playwright.pages import initialize_playwright_page
 
@@ -71,4 +73,34 @@ def chromium_page_with_logged_out_state(
         test_name=request.node.name,
         browser_type=request.param,
         storage_state=settings.logged_out_browser_state_file
+    )
+
+
+@pytest.fixture(scope="session")
+def initialize_browser_state_with_course(initialize_browser_state, playwright: Playwright):
+    # Состояние «пользователь зарегистрирован, вошёл и у него создан один курс D-base с превью».
+    # Курсы хранятся в localStorage, поэтому курс создаём через UI и сохраняем состояние браузера.
+    browser = playwright.chromium.launch(headless=settings.headless)
+    context = browser.new_context(base_url=settings.get_base_url(), storage_state=settings.browser_state_file)
+    page = context.new_page()
+
+    create_course_page = CreateCoursePage(page=page)
+    create_course_page.visit(AppRoute.CREATE_COURSES)
+    create_course_page.create_course(BASE_COURSE, settings.test_data.image_png_file)
+
+    context.storage_state(path=settings.course_browser_state_file)
+    browser.close()
+
+
+@pytest.fixture(params=settings.browsers)
+def chromium_page_with_course_state(
+        initialize_browser_state_with_course,
+        request: SubRequest,
+        playwright: Playwright
+) -> Page:
+    yield from initialize_playwright_page(
+        playwright,
+        test_name=request.node.name,
+        browser_type=request.param,
+        storage_state=settings.course_browser_state_file
     )

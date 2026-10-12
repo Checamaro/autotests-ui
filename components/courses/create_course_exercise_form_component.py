@@ -16,13 +16,22 @@ class CreateCourseExerciseFormComponent(BaseComponent):
         self.title_input = Input(page, "create-course-exercise-form-title-{index}-input", "Title")
         self.description_input = Input(page, "create-course-exercise-form-description-{index}-input", "Description")
 
+    @allure.step('Click delete exercise button at index "{index}"')
     def click_delete_exercise_button(self, index: int):
         self.delete_exercise_button.click(index=index)
+
+    @allure.step('Check exercise at index "{index}" is not visible')
+    def check_not_visible(self, index: int):
+        self.subtitle.check_not_visible(index=index)
+        self.title_input.check_not_visible(index=index)
+        self.description_input.check_not_visible(index=index)
 
     @allure.step('Check visible create course exercise form at index "{index}"')
     def check_visible(self, index: int, title: str, description: str):
         self.subtitle.check_visible(index=index)
         self.subtitle.check_have_text(f"#{index + 1} Exercise", index=index)
+
+        self.delete_exercise_button.check_visible(index=index)
 
         self.title_input.check_visible(index=index)
         self.title_input.check_have_value(title, index=index)

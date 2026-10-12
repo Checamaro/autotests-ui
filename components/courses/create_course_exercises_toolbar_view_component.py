@@ -21,5 +21,6 @@ class CreateCourseExercisesToolbarViewComponent(BaseComponent):
 
         self.create_exercise_button.check_visible()
 
+    @allure.step("Click create exercise button")
     def click_create_exercise_button(self):
         self.create_exercise_button.click()

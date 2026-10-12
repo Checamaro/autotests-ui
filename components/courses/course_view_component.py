@@ -33,3 +33,7 @@ class CourseViewComponent(BaseComponent):
 
         self.estimated_time_text.check_visible(nth=index)
         self.estimated_time_text.check_have_text(f"Estimated time: {estimated_time}", nth=index)
+
+    @allure.step('Check course view at index "{index}" is not visible')
+    def check_not_visible(self, index: int):
+        self.title.check_not_visible(nth=index)

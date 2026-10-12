@@ -78,3 +78,15 @@ class BaseElement:
 
         # Трекаем наличие текста как TEXT
         self.track_coverage(ActionType.TEXT, nth, **kwargs)
+
+
+    def check_not_visible(self, nth: int = 0, **kwargs):
+        step = f'Checking that "{self.type_of}" "{self.name}" is not visible'
+
+        with allure.step(step):
+            locator = self.get_locator(nth, **kwargs)
+            logger.info(step)
+            expect(locator).to_be_hidden()
+
+        # Трекаем отсутствие элемента как HIDDEN
+        self.track_coverage(ActionType.HIDDEN, nth, **kwargs)

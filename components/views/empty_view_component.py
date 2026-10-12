@@ -20,3 +20,9 @@ class EmptyViewComponent(BaseComponent):
         self.title.check_have_text(title)
         self.description.check_visible()
         self.description.check_have_text(description)
+
+    @allure.step('Check empty view is not visible')
+    def check_not_visible(self):
+        self.icon.check_not_visible()
+        self.title.check_not_visible()
+        self.description.check_not_visible()
