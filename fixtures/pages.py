@@ -13,6 +13,14 @@ def login_page(chromium_page: Page) -> LoginPage:
     return LoginPage(page=chromium_page)
 
 @pytest.fixture
+def login_page_with_state(chromium_page_with_state: Page) -> LoginPage:
+    return LoginPage(page=chromium_page_with_state)
+
+@pytest.fixture
+def login_page_with_logged_out_state(chromium_page_with_logged_out_state: Page) -> LoginPage:
+    return LoginPage(page=chromium_page_with_logged_out_state)
+
+@pytest.fixture
 def registration_page(chromium_page: Page) -> RegistrationPage:
     return RegistrationPage(page=chromium_page)
 
@@ -23,6 +31,10 @@ def dashboard_page(chromium_page: Page) -> DashboardPage:
 @pytest.fixture
 def dashboard_page_with_state(chromium_page_with_state: Page) -> DashboardPage:
     return DashboardPage(page=chromium_page_with_state)
+
+@pytest.fixture
+def dashboard_page_with_logged_out_state(chromium_page_with_logged_out_state: Page) -> DashboardPage:
+    return DashboardPage(page=chromium_page_with_logged_out_state)
 
 @pytest.fixture
 def create_course_page(chromium_page_with_state: Page) -> CreateCoursePage:

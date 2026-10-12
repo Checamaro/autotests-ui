@@ -1,3 +1,6 @@
+import re
+
+import allure
 from playwright.sync_api import Page
 
 from components.charts.chart_view_component import ChartViewComponent
@@ -18,6 +21,14 @@ class DashboardPage(BasePage):
         self.students_chart = ChartViewComponent(page, 'students', 'bar')
         self.activities_chart = ChartViewComponent(page, 'activities', 'line')
         self.dashboard_toolbar_view = DashboardToolbarViewComponent(page)
+
+    @allure.step("Check that user '{username}' is authorized on dashboard")
+    def check_authorized(self, username: str):
+        self.check_current_url(re.compile(r".*/#/dashboard"))
+
+        self.dashboard_toolbar_view.check_visible()
+        self.navbar.check_visible(username)
+        self.sidebar.check_visible()
 
     def check_visible_students_chart(self):
         self.students_chart.check_visible('Students')

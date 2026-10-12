@@ -46,6 +46,7 @@ jobs:
 
       # Генерируем HTML-отчет и обновляем историю
       - name: Generate Coverage report
+        if: always()
         run: |
           ui-coverage-tool save-report
 
@@ -68,6 +69,7 @@ jobs:
       # 5. Сохранение результатов тестов как артефакт
       - name: Upload Allure results as artifact
         uses: actions/upload-artifact@v4
+        if: always()  # Сохраняем результаты и при падении тестов — их читает AI triage и publish-report
         with:
           name: allure-results
           path: allure-results
@@ -97,15 +99,35 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      # 4. Генерация отчета Allure с историей
-      - name: Generates Allure Report with history
-        uses: simple-elf/allure-report-action@v1.13
+      # 4. Устанавливаем Java и Allure CLI напрямую (вместо simple-elf/allure-report-action:
+      #    его Docker-образ сломан — в базовом образе нет xargs, и allure не запускается)
+      - name: Set up Java
+        uses: actions/setup-java@v4
         with:
-          allure_results: allure-results
-          allure_history: allure-history
+          distribution: temurin
+          java-version: '17'
 
-      # 5. Публикация отчета на GitHub Pages
+      - name: Install Allure CLI
+        env:
+          ALLURE_VERSION: 2.32.0
+        run: |
+          wget -q https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/$ALLURE_VERSION/allure-commandline-$ALLURE_VERSION.tgz
+          tar -xzf allure-commandline-$ALLURE_VERSION.tgz -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/allure-$ALLURE_VERSION/bin" >> "$GITHUB_PATH"
+
+      # 5. Генерируем отчёт с историей трендов и храним последние 20 отчётов
+      - name: Generate Allure report with history
+        if: always()
+        env:
+          RUN_NUMBER: ${{ github.run_number }}
+          KEEP_REPORTS: 20
+          PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          BUILD_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: bash .github/scripts/allure-history.sh
+
+      # 6. Публикация отчета на GitHub Pages
       - name: Deploy report to Github Pages
+        if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

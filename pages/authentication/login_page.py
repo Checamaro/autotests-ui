@@ -32,3 +32,18 @@ class LoginPage(BasePage):
         self.wrong_email_or_password_alert.check_visible()
         self.wrong_email_or_password_alert.check_have_text('Wrong email or password')
 
+    @allure.step("Check visible empty login page")
+    def check_visible(self):
+        self.check_current_url(re.compile(r".*/#/auth/login"))
+
+        self.login_form.check_visible(email="", password="")
+        self.login_button.check_visible()
+        self.registration_link.check_visible()
+
+    @allure.step("Check that login button is disabled")
+    def check_disabled_login_button(self):
+        self.login_button.check_disabled()
+
+    @allure.step("Check that login button is enabled")
+    def check_enabled_login_button(self):
+        self.login_button.check_enabled()

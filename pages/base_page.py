@@ -24,6 +24,13 @@ class BasePage:
             logger.info(step)
             self.page.reload(wait_until='domcontentloaded')
 
+    def go_back(self):
+        step = f'Going back in browser history from url "{self.page.url}"'
+
+        with allure.step(step):
+            logger.info(step)
+            self.page.go_back(wait_until='domcontentloaded')
+
     def check_current_url(self, expected_url: Pattern[str]):
         step = f'Checking that current url matches pattern "{expected_url.pattern}"'
 

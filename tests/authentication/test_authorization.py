@@ -1,3 +1,5 @@
+import re
+
 import pytest
 
 from config import settings
@@ -80,3 +82,111 @@ class TestAuthorization:
         login_page.click_registration_link()
 
         registration_page.registration_form.check_visible(email="", username="", password="")
+
+    @pytest.mark.parametrize(
+        "email, password",
+        [
+            ("", ""),
+            (settings.test_user.email, ""),
+            ("", settings.test_user.password)
+        ],
+        ids=["empty-email-and-password", "empty-password", "empty-email"]
+    )
+    @allure.tag(AllureTag.USER_LOGIN, AllureTag.VALIDATION)
+    @allure.title('Login button is disabled when email or password is empty')
+    @allure.severity(Severity.NORMAL)
+    def test_login_button_disabled_with_empty_fields(self, login_page: LoginPage, email: str, password: str):
+        login_page.visit(AppRoute.LOGIN)
+        login_page.login_form.fill(email=email, password=password)
+        login_page.check_disabled_login_button()
+
+    @allure.tag(AllureTag.USER_LOGIN, AllureTag.VALIDATION)
+    @allure.title('Login button is enabled when email and password are filled')
+    @allure.severity(Severity.NORMAL)
+    def test_login_button_enabled_with_filled_fields(self, login_page: LoginPage):
+        login_page.visit(AppRoute.LOGIN)
+        login_page.login_form.fill(email=settings.test_user.email, password=settings.test_user.password)
+        login_page.check_enabled_login_button()
+
+    @allure.tag(AllureTag.USER_LOGIN, AllureTag.SECURITY)
+    @allure.title('Password is masked in login form')
+    @allure.severity(Severity.NORMAL)
+    def test_password_masked_in_login_form(self, login_page: LoginPage):
+        login_page.visit(AppRoute.LOGIN)
+        login_page.login_form.fill(email=settings.test_user.email, password=settings.test_user.password)
+        login_page.login_form.check_password_masked()
+
+    @allure.tag(AllureTag.USER_LOGIN)
+    @allure.title('Registered user logs in with correct email and password')
+    @allure.severity(Severity.BLOCKER)
+    def test_successful_authorization_of_registered_user(
+            self,
+            login_page_with_logged_out_state: LoginPage,
+            dashboard_page_with_logged_out_state: DashboardPage
+    ):
+        login_page_with_logged_out_state.visit(AppRoute.LOGIN)
+        login_page_with_logged_out_state.login_form.fill(
+            email=settings.test_user.email,
+            password=settings.test_user.password
+        )
+        login_page_with_logged_out_state.click_login_button()
+
+        dashboard_page_with_logged_out_state.check_authorized(settings.test_user.username)
+
+    @pytest.mark.parametrize(
+        "password",
+        [
+            f"{settings.test_user.password}-wrong",
+            settings.test_user.password.upper()
+        ],
+        ids=["wrong-password", "password-in-different-case"]
+    )
+    @allure.tag(AllureTag.USER_LOGIN, AllureTag.SECURITY)
+    @allure.title('Registered user cannot log in with wrong password')
+    @allure.severity(Severity.CRITICAL)
+    def test_wrong_password_for_registered_user(self, login_page_with_logged_out_state: LoginPage, password: str):
+        login_page_with_logged_out_state.visit(AppRoute.LOGIN)
+        login_page_with_logged_out_state.login_form.fill(email=settings.test_user.email, password=password)
+        login_page_with_logged_out_state.click_login_button()
+
+        login_page_with_logged_out_state.check_visible_wrong_email_or_password_alert()
+        login_page_with_logged_out_state.check_current_url(re.compile(r".*/#/auth/login"))
+
+    @pytest.mark.parametrize(
+        "route",
+        [AppRoute.DASHBOARD, AppRoute.COURSES, AppRoute.CREATE_COURSES],
+        ids=["dashboard", "courses", "create-course"]
+    )
+    @allure.tag(AllureTag.ACCESS_CONTROL)
+    @allure.title('Unauthorized user is redirected to login page from protected page')
+    @allure.severity(Severity.CRITICAL)
+    def test_unauthorized_user_redirected_to_login(self, login_page: LoginPage, route: AppRoute):
+        login_page.visit(route)
+        login_page.check_visible()
+
+    @allure.tag(AllureTag.USER_LOGOUT, AllureTag.SESSION, AllureTag.ACCESS_CONTROL)
+    @allure.title('Logout ends session and closes access to protected pages')
+    @allure.severity(Severity.CRITICAL)
+    def test_logout_ends_session(self, dashboard_page_with_state: DashboardPage, login_page_with_state: LoginPage):
+        dashboard_page_with_state.visit(AppRoute.DASHBOARD)
+        dashboard_page_with_state.check_authorized(settings.test_user.username)
+
+        dashboard_page_with_state.sidebar.click_logout()
+        login_page_with_state.check_visible()
+
+        # После выхода защищённая страница недоступна ни кнопкой «Назад», ни по прямой ссылке
+        login_page_with_state.go_back()
+        login_page_with_state.check_visible()
+
+        dashboard_page_with_state.visit(AppRoute.DASHBOARD)
+        login_page_with_state.check_visible()
+
+    @allure.tag(AllureTag.SESSION)
+    @allure.title('Session persists after page reload')
+    @allure.severity(Severity.NORMAL)
+    def test_session_persists_after_reload(self, dashboard_page_with_state: DashboardPage):
+        dashboard_page_with_state.visit(AppRoute.DASHBOARD)
+        dashboard_page_with_state.check_authorized(settings.test_user.username)
+
+        dashboard_page_with_state.reload()
+        dashboard_page_with_state.check_authorized(settings.test_user.username)

@@ -44,3 +44,14 @@ class Input(BaseElement):
 
         # Фиксируем в покрытии, что значение проверено — тип VALUE
         self.track_coverage(ActionType.VALUE, nth, **kwargs)
+
+    def check_masked(self, nth: int = 0, **kwargs):
+        step = f'Checking that {self.type_of} "{self.name}" masks entered value'
+
+        with allure.step(step):
+            locator = self.get_locator(nth, **kwargs)
+            logger.info(step)
+            expect(locator).to_have_attribute('type', 'password')
+
+        # В ui-coverage-tool нет отдельного ActionType для проверки атрибута,
+        # поэтому действие в покрытии не трекаем
