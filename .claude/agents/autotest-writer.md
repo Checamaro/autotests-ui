@@ -22,3 +22,4 @@ model: sonnet
 7. Полная регрессия: `pytest -m regression -n 2`.
 8. Ветка `ai/<feature>-<коротко>`, коммит, затем покажи мне сводку diff и дождись «да» перед
    `git push -u origin` и `gh pr create` (в описании PR: кейсы, изменения во фреймворке, результат прогона).
+9. В конце работы с Playwright MCP обязательно вызови browser_close.
