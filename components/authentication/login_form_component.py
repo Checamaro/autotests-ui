@@ -18,10 +18,16 @@ class LoginFormComponent(BaseComponent):
 
         self.password_input.fill(password)
         self.password_input.check_have_value(password)
+
     @allure.step("Check visible login form")
     def check_visible(self, email: str, password: str):
+        # У <input> нет текстового содержимого, поэтому значение полей проверяем через value
         self.email_input.check_visible()
-        self.email_input.check_have_text(email)
+        self.email_input.check_have_value(email)
 
         self.password_input.check_visible()
-        self.password_input.check_have_text(password)
+        self.password_input.check_have_value(password)
+
+    @allure.step("Check that password is masked in login form")
+    def check_password_masked(self):
+        self.password_input.check_masked()

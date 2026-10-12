@@ -21,3 +21,8 @@ coverage.html
 coverage-results
 coverage-report.json
 coverage-history.json
+
+# ИИ-конвейер: конфиги Claude Code нужны в репозитории (иначе их скрывает правило *.json)
+!.mcp.json
+!.claude/settings.json
+.claude/settings.local.json

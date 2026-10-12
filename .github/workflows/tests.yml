@@ -46,6 +46,7 @@ jobs:
 
       # Генерируем HTML-отчет и обновляем историю
       - name: Generate Coverage report
+        if: always()
         run: |
           ui-coverage-tool save-report
 
@@ -68,6 +69,7 @@ jobs:
       # 5. Сохранение результатов тестов как артефакт
       - name: Upload Allure results as artifact
         uses: actions/upload-artifact@v4
+        if: always()  # Сохраняем результаты и при падении тестов — их читает AI triage и publish-report
         with:
           name: allure-results
           path: allure-results
