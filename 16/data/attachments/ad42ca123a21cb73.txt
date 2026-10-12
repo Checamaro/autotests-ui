@@ -1,0 +1,38 @@
+INFO     BASE_PAGE:base_page.py:17 Opening the url "AppRoute.COURSES"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-view-menu-button" at index "0"
+INFO     BASE_ELEMENT:base_element.py:53 Clicking on "button" "Menu"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-view-edit-menu-item" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "button" "Edit" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-view-edit-menu-item" at index "0"
+INFO     BASE_ELEMENT:base_element.py:53 Clicking on "button" "Edit"
+INFO     BASE_COMPONENT:base_component.py:16 Checking current URL matches pattern ".*/#/courses/(?!create$)[^/]+$"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-title-input" at index "0"
+INFO     INPUT:input.py:31 Fill input "Title" to value "Not saved"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-title-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Title" has a value "Not saved"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=courses-drawer-list-item-button" at index "0"
+INFO     BASE_ELEMENT:base_element.py:53 Clicking on "button" "courses button"
+INFO     BASE_COMPONENT:base_component.py:16 Checking current URL matches pattern ".*/#/courses"
+INFO     BASE_PAGE:base_page.py:38 Checking that current url matches pattern ".*/#/courses$"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-preview-image" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "image" "Preview" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-widget-title-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "text" "Title" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-widget-title-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:76 Checking that "text" "Title" has text "Playwright"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-max-score-info-row-view-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "text" "Max score" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-max-score-info-row-view-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:76 Checking that "text" "Max score" has text "Max score: 100"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-min-score-info-row-view-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "text" "Min score" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-min-score-info-row-view-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:76 Checking that "text" "Min score" has text "Min score: 10"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-estimated-time-info-row-view-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "text" "Estimated time" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-estimated-time-info-row-view-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:76 Checking that "text" "Estimated time" has text "Estimated time: 2 weeks"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-widget-title-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "text" "Title" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-widget-title-text" at index "1"
+INFO     BASE_ELEMENT:base_element.py:88 Checking that "text" "Title" is not visible
