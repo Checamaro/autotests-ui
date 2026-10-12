@@ -1,3 +1,5 @@
+import re
+
 from playwright.sync_api import Page
 import allure
 from components.base_component import BaseComponent
@@ -16,12 +18,14 @@ class CourseViewMenuComponent(BaseComponent):
     def click_edit(self, index: int):
         self.menu_button.click(nth=index)
 
-        self.edit_menu_item.check_visible(nth=index)
-        self.edit_menu_item.click(nth=index)
+        # Открыто только одно меню, поэтому пункт меню всегда единственный (nth=0)
+        self.edit_menu_item.check_visible()
+        self.edit_menu_item.click()
+        self.check_current_url(re.compile(r".*/#/courses/(?!create$)[^/]+$"))
 
     @allure.step('Open course menu at index "{index}" and click delete')
     def click_delete(self, index: int):
         self.menu_button.click(nth=index)
 
-        self.delete_menu_item.check_visible(nth=index)
-        self.delete_menu_item.click(nth=index)
+        self.delete_menu_item.check_visible()
+        self.delete_menu_item.click()

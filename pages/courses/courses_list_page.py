@@ -1,3 +1,6 @@
+import re
+
+import allure
 from playwright.sync_api import Page, expect
 from pages.base_page import BasePage
 from components.navigation.navbar_component import NavbarComponent
@@ -33,3 +36,17 @@ class CoursesListPage(BasePage):
 
     def click_delete_course(self, index: int):
         self.course_view.menu.click_delete(index=index)
+
+    @allure.step('Check courses list contains exactly {count} courses')
+    def check_courses_count(self, count: int):
+        # Курс с индексом count отсутствует (курсов не больше count);
+        # наличие курсов с индексами 0..count-1 проверяется отдельно через check_visible
+        if count == 0:
+            self.check_visible_empty_view()
+        else:
+            self.course_view.title.check_visible(nth=count - 1)
+        self.course_view.check_not_visible(index=count)
+
+    @allure.step("Check current url is courses list")
+    def check_current_url_courses_list(self):
+        self.check_current_url(re.compile(r".*/#/courses$"))

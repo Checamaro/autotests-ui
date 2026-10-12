@@ -11,3 +11,4 @@ description: Воспроизводит баг UI Course в браузере, о
 4. Покажи черновик и дождись «да».
 5. `gh issue create --title "..." --body-file <файл> --label bug` — верни ссылку.
 6. Если есть падающий автотест — предложи `@pytest.mark.xfail(reason="#<номер>", strict=True)`.
+7. В конце работы с Playwright MCP обязательно вызови browser_close.
