@@ -1,0 +1,71 @@
+INFO     BASE_PAGE:base_page.py:17 Opening the url "AppRoute.CREATE_COURSES"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercises-box-toolbar-create-exercise-button" at index "0"
+INFO     BASE_ELEMENT:base_element.py:53 Clicking on "button" "Create exercise"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercises-box-toolbar-create-exercise-button" at index "0"
+INFO     BASE_ELEMENT:base_element.py:53 Clicking on "button" "Create exercise"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercises-box-toolbar-create-exercise-button" at index "0"
+INFO     BASE_ELEMENT:base_element.py:53 Clicking on "button" "Create exercise"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-title-0-input" at index "0"
+INFO     INPUT:input.py:31 Fill input "Title" to value "Ex 1"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-title-0-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Title" has a value "Ex 1"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-description-0-input" at index "0"
+INFO     INPUT:input.py:31 Fill input "Description" to value "Desc 1"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-description-0-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Description" has a value "Desc 1"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-title-1-input" at index "0"
+INFO     INPUT:input.py:31 Fill input "Title" to value "Ex 2"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-title-1-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Title" has a value "Ex 2"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-description-1-input" at index "0"
+INFO     INPUT:input.py:31 Fill input "Description" to value "Desc 2"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-description-1-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Description" has a value "Desc 2"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-title-2-input" at index "0"
+INFO     INPUT:input.py:31 Fill input "Title" to value "Ex 3"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-title-2-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Title" has a value "Ex 3"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-description-2-input" at index "0"
+INFO     INPUT:input.py:31 Fill input "Description" to value "Desc 3"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-description-2-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Description" has a value "Desc 3"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-1-box-toolbar-delete-exercise-button" at index "0"
+INFO     BASE_ELEMENT:base_element.py:53 Clicking on "button" "Delete exercise"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-0-box-toolbar-subtitle-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "text" "Exercise subtitle" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-1-box-toolbar-subtitle-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "text" "Exercise subtitle" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-2-box-toolbar-subtitle-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:88 Checking that "text" "Exercise subtitle" is not visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-title-2-input" at index "0"
+INFO     BASE_ELEMENT:base_element.py:88 Checking that "input" "Title" is not visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-description-2-input" at index "0"
+INFO     BASE_ELEMENT:base_element.py:88 Checking that "input" "Description" is not visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-0-box-toolbar-subtitle-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "text" "Exercise subtitle" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-0-box-toolbar-subtitle-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:76 Checking that "text" "Exercise subtitle" has text "#1 Exercise"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-0-box-toolbar-delete-exercise-button" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "button" "Delete exercise" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-title-0-input" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "input" "Title" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-title-0-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Title" has a value "Ex 1"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-description-0-input" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "input" "Description" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-description-0-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Description" has a value "Desc 1"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-1-box-toolbar-subtitle-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "text" "Exercise subtitle" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-1-box-toolbar-subtitle-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:76 Checking that "text" "Exercise subtitle" has text "#2 Exercise"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-1-box-toolbar-delete-exercise-button" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "button" "Delete exercise" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-title-1-input" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "input" "Title" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-title-1-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Title" has a value "Ex 3"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-description-1-input" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "input" "Description" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-exercise-form-description-1-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Description" has a value "Desc 3"

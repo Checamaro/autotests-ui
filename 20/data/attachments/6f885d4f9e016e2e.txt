@@ -1,0 +1,37 @@
+INFO     BASE_PAGE:base_page.py:17 Opening the url "AppRoute.CREATE_COURSES"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-preview-image-upload-widget-input" at index "0"
+INFO     FILE_INPUT:file_input.py:18 file input
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-preview-image-upload-widget-info-icon" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "icon" "Info icon" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-preview-image-upload-widget-info-title-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "text" "Info title" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-preview-image-upload-widget-info-title-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:76 Checking that "text" "Info title" has text "Tap on "Upload image" button to select file"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-preview-image-upload-widget-info-description-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "text" "Info description" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-preview-image-upload-widget-info-description-text" at index "0"
+INFO     BASE_ELEMENT:base_element.py:76 Checking that "text" "Info description" has text "Recommended file size 540X300"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-preview-image-upload-widget-upload-button" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "button" "Upload button" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-preview-image-upload-widget-remove-button" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "button" "Remove button" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-preview-image-upload-widget-preview-image" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "image" "Preview image" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-title-input" at index "0"
+INFO     INPUT:input.py:31 Fill input "Title" to value "Playwright"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-title-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Title" has a value "Playwright"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-estimated-time-input" at index "0"
+INFO     INPUT:input.py:31 Fill input "Estimated time" to value "2 weeks"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-estimated-time-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Estimated time" has a value "2 weeks"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-max-score-input" at index "0"
+INFO     INPUT:input.py:31 Fill input "Max score" to value "100"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-max-score-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Max score" has a value "100"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-min-score-input" at index "0"
+INFO     INPUT:input.py:31 Fill input "Min score" to value "10"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-min-score-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Min score" has a value "10"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-toolbar-create-course-button" at index "0"
+INFO     BUTTON:button.py:31 Checking that "button" Create course is disabled
