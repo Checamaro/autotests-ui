@@ -1,0 +1,71 @@
+- generic [ref=e7]:
+  - banner [ref=e26]:
+    - generic [ref=e27]:
+      - generic [ref=e28]: UI Course
+      - paragraph [ref=e29]: Welcome, bugger!
+  - list [ref=e34]:
+    - listitem [ref=e35]:
+      - button "Dashboard" [ref=e36] [cursor=pointer]
+    - listitem [ref=e42]:
+      - button "Courses" [ref=e43] [cursor=pointer]
+    - listitem [ref=e50]:
+      - button "Logout" [ref=e51] [cursor=pointer]
+  - main [ref=e57]:
+    - generic [ref=e241]:
+      - generic [ref=e243]:
+        - heading "Create course" [level=6] [ref=e244]
+        - button [ref=e294] [cursor=pointer]
+      - generic [ref=e245]:
+        - img "Image Preview" [ref=e297]
+        - generic [ref=e254]:
+          - paragraph [ref=e257]: Tap on "Upload image" button to select file
+          - generic [ref=e258]: Recommended file size 540X300
+          - button [ref=e259] [cursor=pointer]:
+            - text: Upload image
+            - button "Upload image" [active] [ref=e263]
+          - button [ref=e298] [cursor=pointer]
+      - generic [ref=e264]:
+        - generic [ref=e265]:
+          - generic [ref=e302]: Title
+          - generic [ref=e266]:
+            - textbox "Title" [ref=e267]:
+              - /placeholder: New course
+              - text: Bug course
+            - group [aria-hidden]:
+              - generic: Title
+        - generic [ref=e268]:
+          - generic [ref=e303]: Estimated time
+          - generic [ref=e269]:
+            - textbox "Estimated time" [ref=e270]:
+              - /placeholder: 1h 20m
+              - text: 2 weeks
+            - group [aria-hidden]:
+              - generic: Estimated time
+        - generic [ref=e271]:
+          - generic [ref=e304]: Description
+          - generic [ref=e272]:
+            - textbox "Description" [ref=e273]:
+              - /placeholder: Add description for course
+              - text: Min score greater than max score
+            - group [aria-hidden]:
+              - generic: Description
+        - generic [ref=e274]:
+          - generic [ref=e275]: Max score
+          - generic [ref=e276]:
+            - spinbutton "Max score" [ref=e277]: "5"
+            - group [aria-hidden]:
+              - generic: Max score
+        - generic [ref=e278]:
+          - generic [ref=e279]: Min score
+          - generic [ref=e280]:
+            - spinbutton "Min score" [ref=e281]: "50"
+            - group [aria-hidden]:
+              - generic: Min score
+      - generic [ref=e282]:
+        - generic [ref=e283]:
+          - paragraph [ref=e284]: Exercises
+          - button [ref=e285] [cursor=pointer]
+        - generic [ref=e288]:
+          - heading "There is no exercises" [level=6] [ref=e291]
+          - paragraph [ref=e292]: Click on "Create exercise" button to create new exercise
+        - list [ref=e293]

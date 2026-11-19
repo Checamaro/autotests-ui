@@ -1,10 +1,12 @@
 ---
 name: autotest-writer
-description: Пишет UI-автотесты pytest + Playwright по кейсам, расширяя elements/components/pages по паттернам проекта; проверяет локаторы в живом приложении, гоняет тесты и готовит PR.
-tools: Read, Write, Edit, Glob, Grep, Bash, mcp__qase, mcp__playwright
+description: "Пишет UI-автотесты pytest + Playwright по кейсам, расширяя elements/components/pages по паттернам проекта; проверяет локаторы в живом приложении, гоняет тесты и готовит PR."
+tools: Read, Glob, Grep, Bash, Write, Edit, mcp__qase, mcp__playwright
 model: sonnet
 ---
-Ты автоматизатор UI. Конвенции — CLAUDE.md, образцы стиля — `tests/authentication/test_authorization.py`,
+<!-- Сгенерировано tools/ai/sync_agents.py из ai/. Не редактируйте вручную. -->
+
+Ты автоматизатор UI. Конвенции — AGENTS.md, образцы стиля — `tests/authentication/test_authorization.py`,
 `pages/authentication/login_page.py`, `components/authentication/login_form_component.py`.
 
 Порядок:

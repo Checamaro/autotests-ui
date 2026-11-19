@@ -1,0 +1,37 @@
+# Провайдер и модели ИИ-конвейера.
+# Ключа здесь нет: в файле только ИМЯ переменной окружения, где лежит ключ.
+#   локально (Windows):  setx LLM_API_KEY "ваш-ключ"
+#   в GitHub Actions:    секрет репозитория LLM_API_KEY
+#
+# Сменить провайдера — поменять base_url (и ключ). Сменить модель — поменять строку в [models].
+# Подходит любой OpenAI-совместимый API:
+#   Polza AI    https://polza.ai/api/v1
+#   OpenRouter  https://openrouter.ai/api/v1
+#   OpenAI      https://api.openai.com/v1
+#   Ollama      http://localhost:11434/v1   (локально, без ключа)
+# После правки запустите: python tools/ai/sync_agents.py
+
+[provider]
+id = "polza"                          # короткое имя, используется в opencode.json: <id>/<модель>
+name = "Polza AI"
+base_url = "https://polza.ai/api/v1"
+api_key_env = "LLM_API_KEY"
+
+[models]
+# Идентификаторы — из каталога провайдера (для Polza: polza.ai/models). Сверьте перед первым запуском.
+default = "anthropic/claude-sonnet-4.6"
+
+[models.roles]
+# Своя модель для роли. Роль без строки здесь работает на default.
+# Аналитику и триажеру хватает модели подешевле, автотестеру нужна сильная.
+ui-requirements-analyst = "anthropic/claude-haiku-4.5"
+test-designer = "anthropic/claude-sonnet-4.6"
+autotest-writer = "anthropic/claude-sonnet-4.6"
+run-triager = "anthropic/claude-haiku-4.5"
+# Разбор упавшего прогона в CI (tools/ai/triage.py). Инструменты не нужны — подойдёт модель любого вендора,
+# например "z-ai/glm-5-turbo", "openai/<модель>", "google/<модель>".
+ci-triage = "anthropic/claude-haiku-4.5"
+
+[mcp]
+# Префикс запуска MCP-серверов. На Windows npx запускается через cmd /c; на Linux/macOS оставьте [].
+command_prefix = ["cmd", "/c"]

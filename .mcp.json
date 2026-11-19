@@ -2,11 +2,22 @@
   "mcpServers": {
     "playwright": {
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "@playwright/mcp@latest", "--isolated"]
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@playwright/mcp@latest",
+        "--isolated"
+      ]
     },
     "qase": {
       "command": "cmd",
-      "args": ["/c", "npx", "-y", "@qase/mcp-server"],
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@qase/mcp-server"
+      ],
       "env": {
         "QASE_API_TOKEN": "${QASE_API_TOKEN}"
       }
