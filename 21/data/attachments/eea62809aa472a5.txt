@@ -1,0 +1,18 @@
+INFO     BASE_PAGE:base_page.py:17 Opening the url "AppRoute.COURSES"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-view-menu-button" at index "0"
+INFO     BASE_ELEMENT:base_element.py:53 Clicking on "button" "Menu"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-view-edit-menu-item" at index "0"
+INFO     BASE_ELEMENT:base_element.py:65 Checking that "button" "Edit" is visible
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=course-view-edit-menu-item" at index "0"
+INFO     BASE_ELEMENT:base_element.py:53 Clicking on "button" "Edit"
+INFO     BASE_COMPONENT:base_component.py:16 Checking current URL matches pattern ".*/#/courses/(?!create$)[^/]+$"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-max-score-input" at index "0"
+INFO     INPUT:input.py:31 Fill input "Max score" to value "10"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-max-score-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Max score" has a value "10"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-min-score-input" at index "0"
+INFO     INPUT:input.py:31 Fill input "Min score" to value "100"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-form-min-score-input" at index "0"
+INFO     INPUT:input.py:42 Checking that input "Min score" has a value "100"
+INFO     BASE_ELEMENT:base_element.py:27 Getting locator with "data-testid=create-course-toolbar-create-course-button" at index "0"
+INFO     BUTTON:button.py:31 Checking that "button" Create course is disabled
