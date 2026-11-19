@@ -1,0 +1,64 @@
+# Роли ИИ-конвейера, их права и подключения. Один источник для всех инструментов:
+# tools/ai/sync_agents.py собирает отсюда .opencode/ + opencode.json (OpenCode)
+# и .claude/ + .mcp.json (Claude Code).
+#
+# Права — префиксы shell-команд:
+#   allow — без вопросов, ask — каждый раз спрашивать, deny — запрещено.
+
+# ---------- MCP-серверы ----------
+[mcp.playwright]
+command = ["npx", "-y", "@playwright/mcp@latest", "--isolated"]
+
+[mcp.qase]
+command = ["npx", "-y", "@qase/mcp-server"]
+env = { QASE_API_TOKEN = "QASE_API_TOKEN" }     # переменная окружения: имя в процессе = имя в системе
+
+# ---------- Общие права ----------
+[permissions]
+allow = [
+  "pytest", "playwright show-trace", "python tools/ai/summarize_allure.py",
+  "git status", "git diff", "git log", "git checkout -b", "git add", "git commit",
+  "gh run list", "gh run view", "gh run download", "gh issue list", "gh issue view",
+]
+ask = ["git push", "gh pr create", "gh issue create", "gh issue edit", "gh issue comment", "pip install"]
+deny = ["git push --force", "git push origin main", "rm -rf", "gh repo delete"]
+
+# ---------- Роли (субагенты) ----------
+[[agents]]
+name = "ui-requirements-analyst"
+description = "Анализирует фичу UI-приложения по исходникам (маршруты, формы, валидация, хранение состояния) и живому приложению, сравнивает с текущим покрытием. Первый шаг для новой страницы или фичи."
+prompt = "ai/prompts/agents/ui-requirements-analyst.md"
+edit = false                 # только чтение
+mcp = ["playwright"]
+
+[[agents]]
+name = "test-designer"
+description = "Проектирует UI тест-кейсы по отчёту аналитика и после подтверждения заводит их в Qase (проект UI). Шаг после ui-requirements-analyst."
+prompt = "ai/prompts/agents/test-designer.md"
+edit = true
+mcp = ["qase"]
+
+[[agents]]
+name = "autotest-writer"
+description = "Пишет UI-автотесты pytest + Playwright по кейсам, расширяя elements/components/pages по паттернам проекта; проверяет локаторы в живом приложении, гоняет тесты и готовит PR."
+prompt = "ai/prompts/agents/autotest-writer.md"
+edit = true
+mcp = ["qase", "playwright"]
+
+[[agents]]
+name = "run-triager"
+description = "Разбирает прогон UI-тестов (allure-results, трейсы Playwright, локально или из GitHub Actions), классифицирует падения и готовит баги или фиксы. После красного прогона."
+prompt = "ai/prompts/agents/run-triager.md"
+edit = false
+mcp = ["playwright"]
+
+# ---------- Команды ----------
+[[commands]]
+name = "qa-pipeline"
+description = "Полный конвейер QA для фичи или страницы: анализ, тест-кейсы в Qase, автотесты, PR, разбор прогона. Вызов /qa-pipeline <фича>."
+prompt = "ai/prompts/commands/qa-pipeline.md"
+
+[[commands]]
+name = "bug-report"
+description = "Воспроизводит баг в браузере, оформляет по шаблону и заводит в GitHub Issues после подтверждения. Вызов /bug-report <описание>."
+prompt = "ai/prompts/commands/bug-report.md"

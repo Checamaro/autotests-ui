@@ -1,0 +1,25 @@
+# Проверяет, что конфиги ИИ-инструментов (.opencode, .claude, opencode.json, .mcp.json)
+# пересобраны из ai/ после изменений. Если нет — PR красный с подсказкой, что запустить.
+name: AI config check
+
+on:
+  pull_request:
+    paths:
+      - "ai/**"
+      - "AGENTS.md"
+      - ".opencode/**"
+      - ".claude/**"
+      - "opencode.json"
+      - ".mcp.json"
+      - "tools/ai/**"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Generated AI configs are up to date
+        run: python tools/ai/sync_agents.py --check

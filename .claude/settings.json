@@ -4,7 +4,7 @@
       "Bash(pytest:*)",
       "Bash(playwright show-trace:*)",
       "Bash(python tools/ai/summarize_allure.py:*)",
-      "Bash(git status)",
+      "Bash(git status:*)",
       "Bash(git diff:*)",
       "Bash(git log:*)",
       "Bash(git checkout -b:*)",
@@ -28,6 +28,7 @@
       "Bash(gh pr create:*)",
       "Bash(gh issue create:*)",
       "Bash(gh issue edit:*)",
+      "Bash(gh issue comment:*)",
       "Bash(pip install:*)",
       "Edit(.env)"
     ],

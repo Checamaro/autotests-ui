@@ -1,0 +1,27 @@
+- generic [ref=e7]:
+  - banner [ref=e26]:
+    - generic [ref=e27]:
+      - generic [ref=e28]: UI Course
+      - paragraph [ref=e29]: Welcome, bugger!
+  - list [ref=e34]:
+    - listitem [ref=e35]:
+      - button "Dashboard" [ref=e36] [cursor=pointer]
+    - listitem [ref=e42]:
+      - button "Courses" [ref=e43] [cursor=pointer]
+    - listitem [ref=e50]:
+      - button "Logout" [ref=e51] [cursor=pointer]
+  - main [ref=e57]:
+    - generic [ref=e305]:
+      - generic [ref=e307]:
+        - heading "Courses" [level=6] [ref=e308]
+        - button [ref=e309] [cursor=pointer]
+      - generic [ref=e315]:
+        - generic [ref=e316]:
+          - heading "Bug course" [level=6] [ref=e318]
+          - button [ref=e320] [cursor=pointer]
+        - generic [ref=e323]:
+          - img "Preview Image" [ref=e324]
+          - generic [ref=e325]:
+            - paragraph [ref=e332]: "Max score: 5"
+            - paragraph [ref=e339]: "Min score: 50"
+            - paragraph [ref=e345]: "Estimated time: 2 weeks"
